@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import url('https://use.fontawesome.com/releases/v6.5.1/css/all.css');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+@property --a {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: true;
+}
+
+.box {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%);
+    filter: drop-shadow(0 15px 50px #000);
+    border-radius: 20px;
+    animation: rotating 4s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes rotating {
+    0% {
+        --a: 0deg;
+    }
+    100% {
+        --a: 360deg;
+    }
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 40%);
+    filter: drop-shadow(0 15px 50px #000);
+    border-radius: 20px;
+    animation: rotating 4s linear infinite;
+    animation-delay: 1s;
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #2d2d2d;
+    border-radius: 15px;
+    border: 8px solid #25252b;
+}
+
+.box:hover {
+    width: 450px;
+    height: 500px;
+}
+
+.box:hover .login {
+    transform: translateY(0px);
+}
+
+.login {
+    position: absolute;
+    inset: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #00000033;
+    color: #fff;
+    z-index: 1000;
+    border-bottom: 2px solid #ffffff80;
+    transition: 0.5s;
+}
+
+.loginbx {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    transform: translateY(126px);
+    transition: 0.5s;
+}
+
+h2 {
+    color: #ff2770;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-shadow: 0 0 5px #ff2770, 0 0 10px #ff2770;
+}
+
+input {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    color: #fff;
+    background: #0000001a;
+    border: 2px solid #fff;
+    border-radius: 30px;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+input[type="submit"] {
+    background: #45f3ff;
+    border: none;
+    font-weight: 500;
+    color: #111;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+input[type="submit"]:hover {
+    box-shadow: 0 0 10px #45f3ff, 0 0 60px #45f3ff;
+}
+
+.grup {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.grup a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.grup a:nth-child(2) {
+    color: #ff2770;
+    font-weight: 600;
+}
