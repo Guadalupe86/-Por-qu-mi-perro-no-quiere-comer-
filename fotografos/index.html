@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographers Portfolio</title>
+    <link rel="stylesheet" href="stilo.css">
+</head>
+<body>
+    <header>
+        <h1>Photography Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="file:///home/conekta/Escritorio/nose%20qu%20ando%20haciendo%20/index.html">Fotografos</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="file:///home/conekta/Escritorio/login%2002%20git/index.html">Regístrate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="photographers">
+        <h2>Featured Photographers</h2>
+        <div class="photographer-list">
+            <div class="photographer">
+                <img src="photographer1.jpg" alt="Photographer 1">
+                <h3>John Doe</h3>
+                <p>Wedding & Portrait Photographer</p>
+                <a href="portfolio1.html">View Portfolio</a>
+            </div>
+            <div class="photographer">
+                <img src="photographer2.jpg" alt="Photographer 2">
+                <h3>Jane Smith</h3>
+                <p>Nature & Landscape Photographer</p>
+                <a href="portfolio2.html">View Portfolio</a>
+            </div>
+            <!-- Add more photographers as needed -->
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Photography Gallery</h2>
+        <div class="box">
+            <span style="--i:1;" class="image"><img src="xv1.jpeg" alt="Image 1"></span>
+            <span style="--i:2;" class="image"><img src="xv2.jpeg" alt="Image 2"></span>
+            <span style="--i:3;" class="image"><img src="xv3.jpeg" alt="Image 3"></span>
+            <span style="--i:4;" class="image"><img src="bautismo1.jpeg" alt="Image 4"></span>
+            <span style="--i:5;" class="image"><img src="boda1.jpeg" alt="Image 5"></span>
+            <span style="--i:6;" class="image"><img src="boda2.jpeg" alt="Image 6"></span>
+            <span style="--i:7;" class="image"><img src="boda3..jpeg" alt="Image 7"></span>
+            <span style="--i:8;" class="image"><img src="boda4.jpeg" alt="Image 8"></span>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script type="text/javascript">
+        let box = document.querySelector('.box');
+        let isRotating = true;
+
+        window.onmousemove = function(e) {
+            if (isRotating) {
+                let x = e.clientX / 3;
+                box.style.transform = "perspective(1000px) rotateY(" + x + "deg)";
+            }
+        }
+
+        let images = document.querySelectorAll('.image');
+        images.forEach(image => {
+            image.addEventListener('click', function() {
+                this.style.animation = "none";
+                isRotating = !isRotating;
+                if (!isRotating) {
+                    box.style.animation = "none";
+                } else {
+                    box.style.animation = "animate 20s linear infinite";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
